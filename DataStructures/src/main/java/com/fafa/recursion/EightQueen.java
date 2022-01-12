@@ -1,6 +1,4 @@
-package com.fafa.recurison;
-
-import com.sun.scenario.effect.impl.state.AccessHelper;
+package com.fafa.recursion;
 
 /**
  * 八皇后问题，经典的回溯问题
@@ -13,7 +11,7 @@ public class EightQueen {
     /**
      * 数组最大容量（也就是皇后数）
      */
-    private int max = 4;
+    private int max = 5;
     /**
      * 记录列的数组
      */
@@ -22,11 +20,16 @@ public class EightQueen {
      * 解法数
      */
     private static int wayCount = 0;
+    /**
+     * 回溯次数
+     */
+    private static int recursionCount = 0;
 
     public static void main(String[] args) {
         EightQueen queen = new EightQueen();
         queen.checkWay(0);
         System.out.println("wayCount = " + wayCount);
+        System.out.println("recursion = " + recursionCount);
     }
 
     /**
@@ -42,7 +45,7 @@ public class EightQueen {
         for (int i = 0; i < max; i++) {
             // 给列赋值
             arr[n] = i;
-            // 如果是通路
+            // 如果是通路,如果不是则继续累加（for循环嘛）
             if (judgeWay(n)) {
                 // 继续检测下一个
                 checkWay(n + 1);
@@ -58,6 +61,7 @@ public class EightQueen {
      * @return
      */
     public boolean judgeWay(int n) {
+        recursionCount++;
         for (int i = 0; i < n; i++) {
             if (arr[i] == arr[n] || Math.abs(n - i) == Math.abs(arr[n] - arr[i])) {
                 return false;

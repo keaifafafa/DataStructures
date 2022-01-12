@@ -1,4 +1,4 @@
-package com.fafa.recurison;
+package com.fafa.recursion;
 
 /**
  * µ›πÈ≤‚ ‘
