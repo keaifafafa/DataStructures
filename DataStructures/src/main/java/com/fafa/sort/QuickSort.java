@@ -12,9 +12,9 @@ import java.util.Arrays;
 public class QuickSort {
     public static void main(String[] args) {
 //        int[] arr = {-9, 78, 1, 0, 0, -3, 23, -567, 70, -10, 99, 108, 4, -55};
-//        int[] arr = {-9, 78, 1, -92, 0, -3, 23, -567, 70};
+        int[] arr = {-9, 78, 1, -92, 0, -3, 23, -567, 70};
 //        int[] arr = {-9, 78, 1, 0, 0, -3, 23, -567, 70};
-        int[] arr = {3, -1};
+//        int[] arr = {3, -1};
         quickSort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
@@ -30,7 +30,7 @@ public class QuickSort {
         // 右索引
         int r = right;
         // 中轴值
-        int pivot = arr[(l + r) / 2];
+        int pivot = arr[(left + right) / 2];
         int temp = 0;
         // 其实while循环结束后， l == r
         while (l < r) {

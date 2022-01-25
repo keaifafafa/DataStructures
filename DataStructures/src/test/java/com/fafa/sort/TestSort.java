@@ -145,7 +145,7 @@ public class TestSort {
     @Test
     public void testQuick() {
         // 容量
-        int capacity = 8000000;
+        int capacity = 20000000;
         // 创建 8W 容量的数组
         int[] arr = new int[capacity];
         // 初始化数据
@@ -170,7 +170,7 @@ public class TestSort {
     @Test
     public void testMerge() {
         // 容量
-        int capacity = 8000000;
+        int capacity = 10000000;
         // 创建 8W 容量的数组
         int[] arr = new int[capacity];
         // 归并排序额外空间
@@ -186,6 +186,33 @@ public class TestSort {
         System.out.println("排序前的时间" + start);
         // 归并排序
         MergeSort.mergeSort(arr, 0, arr.length - 1, temp);
+        String end = sd.format(new Date());
+        System.out.println("排序后的时间" + end);
+//        System.out.println(Arrays.toString(arr));
+    }
+
+    /**
+     * 测试基数排序的速度
+     */
+    @Test
+    public void testRadix() {
+        // 容量
+        int capacity = 20000000;
+        // 创建 8W 容量的数组
+        int[] arr = new int[capacity];
+        // 归并排序额外空间
+        int[] temp = new int[capacity];
+        // 初始化数据
+        for (int i = 0; i < capacity; i++) {
+            // 生成随机数
+            arr[i] = (int) (Math.random() * (capacity * 100));
+        }
+        SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        // 开始时间
+        String start = sd.format(new Date());
+        System.out.println("排序前的时间" + start);
+        // 基数排序
+        RadixSort.radixSort(arr);
         String end = sd.format(new Date());
         System.out.println("排序后的时间" + end);
 //        System.out.println(Arrays.toString(arr));
